@@ -1,0 +1,29 @@
+doctype html
+html
+    head 
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js")
+        script    
+            include signUp.js
+        style
+            include signUp.css
+    body
+        <!-- contact form created for treehouse competition. -->
+        form(id="contact")
+            div(class="container")
+                div(class="head")
+                    h2 Say Hello
+                input(type="text" name="firstName" placeholder="First Name")
+                br
+                input(type="text" name="lastName" placeholder="Last Name")
+                br 
+                input(type="email" name="email" placeholder="Email")
+                br
+                input(type="phone" name="phone" placeholder="Phone")
+                br
+                input(type="password" name="password" placeholder="Password")
+                br
+                //- input(type="passwordword" name="passwordword" placeholder="Retype passwordword")
+                //- br
+                //- div(class="message") Message Sent
+                button(id="submit" type="submit") Send!
