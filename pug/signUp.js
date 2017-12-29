@@ -1,7 +1,7 @@
 // When the browser is ready...
 $(document).ready(function() {
 
-    $("#contact").submit(function(event) {
+    $("#contact").submit(function() {
 
         /* stop form from submitting normally */
         event.preventDefault();
@@ -15,24 +15,17 @@ $(document).ready(function() {
         const email = $form.find('input[name="email"]').val();
         const password = $form.find('input[name="password"]').val();
         
-        console.log(firstName);
-        console.log("/////////");
         $.ajax({
             url: '/signUpSend',
-            method: 'PUT',
-            // dataType: 'json',
-            headers: {
-                contentType: 'application/json'
-            },
-            data: 
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            data:
                 JSON.stringify({
-                // {
                     firstName: firstName,
                     lastName: lastName,
                     phone: phone,
                     email: email,
                     password: password,
-        // },
                 }),
             error: function(err) {
                 console.log(err);
