@@ -5,7 +5,6 @@ const pug = require('pug');
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: false }))
-
 app.use(bodyParser.json())
 app.listen(port, () => console.log('Listening on port 3000!'))
 app.set('view engine', 'pug');
