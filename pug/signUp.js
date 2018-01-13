@@ -1,21 +1,12 @@
 // When the browser is ready...
 $(document).ready(function() {
-
-    $("#contact").submit(function() {
-        
-        /* stop form from submitting normally */
-        event.preventDefault();
-
-        /* get some values from elements on the page: */
-        const $form = $(this);
-
-        const firstName = $form.find('input[name="firstName"]').val();
-        const lastName = $form.find('input[name="lastName"]').val();
-        const phone = $form.find('input[name="phone"]').val();
-        const email = $form.find('input[name="email"]').val();
-        const password = $form.find('input[name="password"]').val();
-        const userName = $form.find('input[name="userName"]').val();
-        
+    let userName = document.getElementById("userName").value;
+    let firstName = document.getElementById("firstName").value
+    let phone = document.getElementById("phone").value;
+    let lastName = document.getElementById("lastName").value
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value
+	$('#contact').on('submit',function(e) { 
         $.ajax({
             url: '/signUpForm',
             type: 'POST',
@@ -38,37 +29,5 @@ $(document).ready(function() {
             }
         });
     });
-    $(function() {
-        // validate
-        $("#contact").validate({
-            // Set the validation rules
-            rules: {
-                firstName: "required",
-                lastName: "required",
-                userName: "required",
-                
-                email: {
-                    required: true,
-                    email: true
-                },
-                phone: "required",
-                password: "required",
-                   
-            },
-            // Specify the validation error messages
-            messages: {
-                firstName: "Please enter your firstName",
-                lastName: "Please enter your lastName",
-                userName: "Please enter your userName",
-                email: "Please enter a valid email address",
-                phone: "Please enter your phone number",
-                password: "Please enter a valid passwordword",
-            },
-            // submit handler
-            submitHandler: function(form) {
-                $(".message").show();
-                $(".message").fadeOut(4500);
-            }
-        });
-    });
+   
 });

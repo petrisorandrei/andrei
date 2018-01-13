@@ -2,7 +2,7 @@ doctype html
 html
     head 
         title Chrome/Glass Buttons
-        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css")
+            link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css")
         link(rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900')
         link(rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans')
         link(rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
@@ -29,17 +29,17 @@ html
             div(class="container")
                 div(class="head")
                     h2 Sign up
-                input(type="text" name="firstName" placeholder="First Name")
+                input(type="text" id="firstName" required="required" placeholder="First Name")
                 br
-                input(type="text" name="lastName" placeholder="Last Name")
+                input(type="text" id="lastName" required="required" placeholder="Last Name")
                 br 
-                input(type="text" name="userName" placeholder="User Name")
+                input(type="text" id="userName" required="required" placeholder="User Name")
                 br 
-                input(type="email" name="email" placeholder="Email")
+                input(type="email" id="email" required="required" placeholder="Email")
                 br
-                input(type="phone" name="phone" placeholder="Phone")
+                input(type="phone" id="phone" required="required" placeholder="Phone")
                 br
-                input(type="password" name="password" placeholder="Password")
+                input(type="password" id="password" required="required" placeholder="Password")
                 br
                 div(class="message") Message Sent
                 button(class="button-form" id="submit" type="submit") Send!

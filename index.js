@@ -52,7 +52,8 @@ app.post('/addDataForm', (req, res) => {
 });
 app.post('/loginForm', (req, res) => {
     const {password, userName} = req.body;
-
+    console.log(userName);
+    
     logged = true;
     userNameLogged = userName;
     if (userName === 'asirbu' || userName === 'asoare' || userName === 'apetrisor') {

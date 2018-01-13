@@ -1,15 +1,10 @@
-// When the browser is ready...
-$(document).ready(function() {
 
-    $("#contact").submit(function(event) {
 
-        /* stop form from submitting normally */
-        event.preventDefault();
-
-        /* get some values from elements on the page: */
-        const $form = $(this);
-        const password = $form.find('input[name="password"]').val();
-        const userName = $form.find('input[name="userName"]').val();
+$(function(){
+	$('#contact').on('submit',function() { 
+        let userName = document.getElementById("userName").value;
+        let password = document.getElementById("password").value
+        
         $.ajax({
             url: '/loginForm',
             method: 'POST',
@@ -17,8 +12,8 @@ $(document).ready(function() {
 
             data: 
                 JSON.stringify({
-                    userName: userName,
-                    password: password,
+                    userName,
+                    password,
                 }),
             error: function(err) {
                 console.log(err);
@@ -27,21 +22,5 @@ $(document).ready(function() {
                 window.location.href = "/index";
             }
         });
-    });
-    $(function() {
-        // validate
-        $("#contact").validate({
-            // Set the validation rules
-            rules: {
-                userName: "required",
-                password: "required",
-                   
-            },
-            // Specify the validation error messages
-            messages: {
-                userName: "Please enter a userName",
-                password: "Please enter a valid passwordword",
-            },
-        });
-    });
+	});
 });

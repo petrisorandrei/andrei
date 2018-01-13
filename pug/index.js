@@ -14,7 +14,7 @@ $(document).ready(function() {
     $('.home').click(function() {
         home();
     });
-})
+});
 
 function login() {
     $.ajax({
