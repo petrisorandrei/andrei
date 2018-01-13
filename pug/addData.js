@@ -14,13 +14,10 @@ $(document).ready(function() {
         const data3 = $form.find('input[name="data3"]').val();
         const data4 = $form.find('input[name="data4"]').val();
         const data5 = $form.find('input[name="data5"]').val();
-        console.log("SAA"); 
         $.ajax({
             url: '/addDataForm',
             type: 'POST',
             contentType: 'application/json',
-
-            // contentType: "application/json; charset=utf-8",
             data:
                 JSON.stringify({
                     data1, data2, data3, data4, data5
