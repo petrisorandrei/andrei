@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
     $("#contact").submit(function() {
-
+        
         /* stop form from submitting normally */
         event.preventDefault();
 
@@ -14,16 +14,19 @@ $(document).ready(function() {
         const phone = $form.find('input[name="phone"]').val();
         const email = $form.find('input[name="email"]').val();
         const password = $form.find('input[name="password"]').val();
+        const userName = $form.find('input[name="userName"]').val();
         
         $.ajax({
-            url: '/signUpSend',
+            url: '/signUpForm',
             type: 'POST',
-            contentType: "application/json; charset=utf-8",
+            contentType: 'application/json',
+
             data:
                 JSON.stringify({
                     firstName: firstName,
                     lastName: lastName,
                     phone: phone,
+                    userName: userName,
                     email: email,
                     password: password,
                 }),
@@ -31,7 +34,7 @@ $(document).ready(function() {
                 console.log(err);
             },
             success: function (res) {
-                window.location.href = "/view";
+                window.location.href = "/index";
             }
         });
     });
@@ -42,6 +45,7 @@ $(document).ready(function() {
             rules: {
                 firstName: "required",
                 lastName: "required",
+                userName: "required",
                 
                 email: {
                     required: true,
@@ -55,16 +59,16 @@ $(document).ready(function() {
             messages: {
                 firstName: "Please enter your firstName",
                 lastName: "Please enter your lastName",
+                userName: "Please enter your userName",
                 email: "Please enter a valid email address",
                 phone: "Please enter your phone number",
                 password: "Please enter a valid passwordword",
             },
-            // // submit handler
-            // submitHandler: function(form) {
-            // form.submit();
-            // $(".message").show();
-            // $(".message").fadeOut(4500);
-            // }
+            // submit handler
+            submitHandler: function(form) {
+                $(".message").show();
+                $(".message").fadeOut(4500);
+            }
         });
     });
 });

@@ -10,9 +10,9 @@ html
 
         script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js")
         script    
-            include signUp.js
+            include addData.js
             include index.js
-
+            
         style
             include form.css
             include style.css
@@ -21,25 +21,23 @@ html
             nav(class="btn-bar nav-dark")
                 button.btn.btn-glass.btn.primary.home(type = 'button')
                     i(class="fa fa-sm fa-chevron-right") HOME
-                button.btn.btn-glass.btn.primary.login(type = 'button')
-                    i(class="fa fa-sm fa-chevron-right") LOG IN
+                button.btn.btn-glass.btn.primary.logOut(type = 'button')
+                    i(class="fa fa-sm fa-chevron-right") LOG OUT
         br
         br
         form(id="contact")
             div(class="container")
                 div(class="head")
-                    h2 Sign up
-                input(type="text" name="firstName" placeholder="First Name")
+                    h2 Add data
+                input(type="text" name="data1" placeholder="Introduce data 1")
                 br
-                input(type="text" name="lastName" placeholder="Last Name")
+                input(type="text" name="data2" placeholder="Introduce data 2")
                 br 
-                input(type="text" name="userName" placeholder="User Name")
+                input(type="text" name="data3" placeholder="Introduce data 3")
                 br 
-                input(type="email" name="email" placeholder="Email")
+                input(type="text" name="data4" placeholder="Introduce data 4")
                 br
-                input(type="phone" name="phone" placeholder="Phone")
-                br
-                input(type="password" name="password" placeholder="Password")
+                input(type="text" name="data5" placeholder="Introduce data 5")
                 br
                 div(class="message") Message Sent
                 button(class="button-form" id="submit" type="submit") Send!

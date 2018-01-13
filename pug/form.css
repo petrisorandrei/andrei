@@ -67,7 +67,7 @@ body {
   :-ms-input-placeholder {  
      color: #FAFAFA;  
   }
-  button {
+  .button-form {
     margin-top:15px;
     margin-bottom:25px;
     background-color:#2ABCA7;
@@ -83,7 +83,7 @@ body {
     width:30%;
     color:#fff;
   }
-  button:hover, .button:hover {
+  .button-form:hover, .button-form:hover {
     background:#19a08c;
   }
   label.error {
@@ -108,7 +108,7 @@ body {
     input, textarea {
       width: 90%;
     }
-    button {
+    .button-form {
       width:90%;
     }
     body {
