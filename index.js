@@ -80,7 +80,8 @@ app.post('/addDataForm', (req, res) => {
     let emails = [];
     ////ada aici faci un select pentru userii care vor sa primeasca email(+adminii) si le returnezi emailul
     // o sa fie emails.push() de fiecare email gasit --> emails.push(email);
-    sendEmail(message, emails);
+    if (emails.length !== 0)
+        sendEmail(message, emails);
     
     res.render('index', {
         logged,
