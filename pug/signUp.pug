@@ -29,17 +29,25 @@ html
             div(class="container")
                 div(class="head")
                     h2 Sign up
-                input(type="text" id="firstName" required="required" placeholder="First Name")
+                input(type="text" class = 'input-form' id="firstName" required="required" placeholder="First Name")
                 br
-                input(type="text" id="lastName" required="required" placeholder="Last Name")
+                input(type="text" class = 'input-form' id="lastName" required="required" placeholder="Last Name")
                 br 
-                input(type="text" id="userName" required="required" placeholder="User Name")
+                input(type="text" class = 'input-form' id="userName" required="required" placeholder="User Name")
                 br 
-                input(type="email" id="email" required="required" placeholder="Email")
+                input(type="email" class = 'input-form' id="email" required="required" placeholder="Email")
                 br
-                input(type="phone" id="phone" required="required" placeholder="Phone")
+                input(type="phone" class = 'input-form' id="phone" required="required" placeholder="Phone")
                 br
-                input(type="password" id="password" required="required" placeholder="Password")
+                input(type="password" class = 'input-form' id="password" required="required" placeholder="Password")
+                br
+                div(style="width: 48%; float: right;")
+                h4 Do you want to receive emails?
+                input(type="radio" name="receiveEmails" value="Yes" )
+                | Yes 
+                br
+                input(type="radio" name="receiveEmails" value="No" )
+                | No
                 br
                 div(class="message") Message Sent
                 button(class="button-form" id="submit" type="submit") Send!

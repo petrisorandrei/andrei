@@ -32,11 +32,11 @@ body {
     height:100px;
     margin-bottom:10px;
   }
-  input:first-of-type
+  .input-form:first-of-type
   {
     margin-top:35px;
   }
-  input, textarea {
+  .input-form, textarea {
     font-size: 1em;
     padding: 15px 10px 10px;
     font-family: 'Source Sans Pro',arial,sans-serif;
@@ -105,7 +105,7 @@ body {
     label.error {
       width: 90%;
     }
-    input, textarea {
+    .input-form, textarea {
       width: 90%;
     }
     .button-form {

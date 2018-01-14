@@ -8,20 +8,15 @@ $(document).ready(function() {
 
         /* get some values from elements on the page: */
         const $form = $(this);
+        let message = document.getElementById("message").value;
 
-        const data1 = $form.find('input[name="data1"]').val();
-        const data2 = $form.find('input[name="data2"]').val();
-        const data3 = $form.find('input[name="data3"]').val();
-        const data4 = $form.find('input[name="data4"]').val();
-        const data5 = $form.find('input[name="data5"]').val();
         $.ajax({
             url: '/addDataForm',
             type: 'POST',
             contentType: 'application/json',
-            data:
-                JSON.stringify({
-                    data1, data2, data3, data4, data5
-                }),
+            data: JSON.stringify({
+                message
+            }),
             error: function(err) {
                 console.log(err);
             },

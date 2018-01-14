@@ -16,7 +16,8 @@ $(function(){
                     password,
                 }),
             error: function(err) {
-                console.log(err);
+                alert("Invalid userName or password!");
+                // console.log(err);
             },
             success: function (res) {
                 window.location.href = "/index";
