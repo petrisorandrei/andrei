@@ -14,6 +14,12 @@ $(document).ready(function() {
     $('.home').click(function() {
         home();
     });
+    $('.receiveEmails').click(function() {
+        receiveEmails();
+    });
+    $('.stopEmails').click(function() {
+        stopEmails();
+    });
 });
 
 function login() {
@@ -73,6 +79,32 @@ function addData() {
 function home() {
     $.ajax({
         url: '/index',
+        method: 'GET',
+        error: function(err) {
+            console.log(err);
+        },
+        success: function (res) {
+            window.location.href = "/index";
+        }
+    })
+}
+
+function receiveEmails() {
+    $.ajax({
+        url: '/receiveEmails',
+        method: 'GET',
+        error: function(err) {
+            console.log(err);
+        },
+        success: function (res) {
+            window.location.href = "/index";
+        }
+    })
+}
+
+function stopEmails() {
+    $.ajax({
+        url: '/stopEmails',
         method: 'GET',
         error: function(err) {
             console.log(err);

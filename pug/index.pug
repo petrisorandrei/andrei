@@ -25,9 +25,12 @@ html
             p Hello, #{userName}!
             article
                 nav(class="btn-bar nav-dark")
-                    if (userType === 'admin')
-                        button.btn.btn-glass.btn.primary.pendingReq(type = 'button')
-                            i(class="fa fa-sm fa-chevron-right") PENDING REQUESTS
+                    if (receiveEmails === false)
+                        button.btn.btn-glass.btn.primary.receiveEmails(type = 'button')
+                            i(class="fa fa-sm fa-chevron-right") RECEIVE EMAILS
+                    else 
+                        button.btn.btn-glass.btn.primary.stopEmails(type = 'button')
+                            i(class="fa fa-sm fa-chevron-right") STOP RECEIVEING EMAILS
                     button.btn.btn-glass.btn.primary.addData(type = 'button')
                         i(class="fa fa-sm fa-chevron-right") ADD DATA
                     button.btn.btn-glass.btn.primary.logOut(type = 'button')
