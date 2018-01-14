@@ -10,7 +10,18 @@ let logged = false;
 let userNameLogged = 'gigi';
 let userType = 'admin';
 let receiveEmails = false;
-
+var transporter = nodemailer.createTransport({
+    service: "Gmail",
+    secure: false, // use SSL
+    port: 25, // port for secure SMTP
+    auth: {
+        user: 'isiproiect@gmail.com',
+        pass: 'isiproiect1'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.listen(port, () => console.log('Listening on port 3000!'))
@@ -66,21 +77,11 @@ app.post('/signUpForm', (req, res) => {
 
 app.post('/addDataForm', (req, res) => {
     const message = req.body.message;
-
-    ////ada aici faci un select pentru userii care vor sa primeasca email(+adminii) si le returnezi emailul
     let emails = [];
-    //o sa fie emails.push()
-    // sendEmail(message, emails);
-    sendmail({
-        from: 'no-reply@yourdomain.com',
-        to: 'alexa_ramona95@yahoo.com',
-        subject: 'test sendmail',
-        // test: 'JSON.stringify(req.body)',
-        html: userNameLogged + 'just send a message:\n' + message,
-      }, function(err, reply) {
-        console.log(err && err.stack);
-        console.dir(reply);
-    });
+    ////ada aici faci un select pentru userii care vor sa primeasca email(+adminii) si le returnezi emailul
+    // o sa fie emails.push() de fiecare email gasit --> emails.push(email);
+    sendEmail(message, emails);
+    
     res.render('index', {
         logged,
         userName: userNameLogged,
@@ -113,4 +114,25 @@ app.post('/loginForm', (req, res) => {
     
 });
 
+function sendEmail(message, emails) {
+    let to = '';
+    for (let i = 0; i < emails.length ;i++) {
+        to += emails[i];
+        if(i < emails.length-1)
+            to += ',';
+    }
+    
+    let mailOptions = {
+        from: '"Lacul Sfanta Ana" <isiproiect@gmail.com>', 
+        to: to,
+        subject: 'Lacul Sfanta Ana', 
+        html: "<p>" + userNameLogged + " just added an update: <br>" + message
+    };
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+    });
+}
 
