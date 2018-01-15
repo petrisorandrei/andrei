@@ -7,12 +7,21 @@ html
             include style.css
         title Chrome/Glass Buttons
             link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css")
+             script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="https://www.amcharts.com/lib/3/amcharts.js")
+        script(src="https://www.amcharts.com/lib/3/serial.js")
+        script(src="https://www.amcharts.com/lib/3/plugins/export/export.min.js")
+        link(rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all")
+        script(src="https://www.amcharts.com/lib/3/themes/light.js")
+        script(src="https://js.arcgis.com/4.6/")
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
         link(rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900')
         link(rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans')
         link(rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+        link(rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css")
         script    
             include index.js
+            include map.js
     body(align = 'center')
         if (logged === false)
             article
@@ -36,4 +45,24 @@ html
                         i(class="fa fa-sm fa-chevron-right") ADD DATA
                     button.btn.btn-glass.btn.primary.logOut(type = 'button')
                         i(class="fa fa-sm fa-chevron-right") LOG OUT
+            br
+            br
+            div(id="viewDiv")
+                div(id="chartdiv")
+                div(id="Home")
+                div(id="none")
+                div(id="sidebar")
+                    div(id="text")            
+                        h3 Legenda
+                            p Aici vad eu cum pun fiecare bulinuta in parte ca sa arate a legenda
+                            div(id="circle1")
+                            div(id="text") Informatii generale despre lac 
+                            div(id="circle0")
+                            div(id="text") Informatii despre calitatea apei
+                            div(id="circle3")
+                            div(id="text") Specii de amfibieni
+                            div(id="circle2")
+                            div(id="text") Grafic Precipitatii medii anuale(MC/AN)
+                            div(id="trapezoid")
+                            div(id="text") Zona pentru inot    
         
